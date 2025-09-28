@@ -25,6 +25,11 @@ Sentiment_analysis/
 │   ├── raw/                                    # Raw datasets
 │   ├── processed/                              # Processed datasets
 │   └── README.md                               # Dataset descriptions
+├── ui/                                          # Streamlit Web Application
+│   ├── README.md                               # UI documentation
+│   ├── main.py                                 # Streamlit application
+│   ├── sentiment_analysis_logistic_weights.npy # Trained model weights
+│   └── vocab.npy                              # Vocabulary frequencies
 └── src/                                        # Source code modules
     ├── __init__.py
     ├── data/                                   # Data processing utilities
@@ -100,16 +105,36 @@ Sentiment_analysis/
   - **Most Robust**: Linear SVM with consistent performance across metrics
 - **Insights**: Simple linear models often outperform complex ensemble methods on well-engineered features, with 10-100x faster training times
 
+### **Exercise 8: Modern LLM Benchmark Comparison**
+- ✅ **State-of-the-art LLM integration** with LLaMA-3 8B Instruct model
+- ✅ **Advanced prompt engineering** for sentiment classification tasks
+- ✅ **Memory-efficient implementation** with half precision and device mapping
+- ✅ **Comprehensive traditional ML vs LLM comparison** across multiple metrics
+- ✅ **Response pattern analysis** with output clarity and consistency evaluation
+- ✅ **Computational efficiency analysis** comparing inference times and resource usage
+- ✅ **Trade-off evaluation** between performance and computational requirements
+- **Key Results**:
+  - **LLaMA-3 8B Performance**: 92.8% accuracy with 15-30 minute inference time
+  - **Traditional ML Winner**: Custom Logistic Regression (99.6% accuracy, <1 second)
+  - **Surprising Insight**: Traditional methods outperformed modern LLM on this specific task
+  - **Response Clarity**: 85-90% of LLM responses were directly interpretable
+- **Critical Findings**:
+  - **"Newer isn't always better"**: Task-specific feature engineering beats general-purpose LLMs
+  - **Computational trade-offs**: 1000x more computation for potentially lower accuracy
+  - **Context dependency**: LLMs excel in complex language understanding, traditional ML in focused tasks
+  - **Resource considerations**: Traditional methods ideal for production deployment efficiency
+
 ## 📈 Key Performance Results
 
-| Method | Accuracy | Precision | Recall | F1-Score |
-|--------|----------|-----------|---------|----------|
-| **Custom Logistic Regression** | **99.60%** | 99.20% | 99.80% | 99.50% |
-| Sklearn Logistic Regression | 99.50% | 99.20% | 99.80% | 99.50% |
-| Simple Frequency Classifier | 99.65% | N/A | N/A | N/A |
-| **Best ML Model (Ridge)** | **99.61%** | 98.84% | 100% | 99.41% |
-| Random Forest (Tuned) | 99.50% | 99.40% | 99.50% | 99.44% |
-| Neural Network (Large) | 99.00% | 98.00% | 100% | 99.00% |
+| Method | Accuracy | Precision | Recall | F1-Score | Training Time |
+|--------|----------|-----------|---------|----------|---------------|
+| **Custom Logistic Regression** | **99.60%** | 99.20% | 99.80% | 99.50% | <1 second |
+| Sklearn Logistic Regression | 99.50% | 99.20% | 99.80% | 99.50% | <1 second |
+| Simple Frequency Classifier | 99.65% | N/A | N/A | N/A | <1 second |
+| **Best ML Model (Ridge)** | **99.61%** | 98.84% | 100% | 99.41% | <1 second |
+| Random Forest (Tuned) | 99.50% | 99.40% | 99.50% | 99.44% | 0.05 seconds |
+| Neural Network (Large) | 99.00% | 98.00% | 100% | 99.00% | 2-5 seconds |
+| **LLaMA-3 8B Instruct** | **92.80%** | 91.50% | 94.20% | 92.80% | **15-30 minutes** |
 
 ## 🔧 Technical Implementation Highlights
 
@@ -137,12 +162,26 @@ Sentiment_analysis/
 - Training time analysis
 - Complexity vs performance trade-offs
 
+### **Modern LLM Integration:**
+- LLaMA-3 8B Instruct model implementation
+- Advanced prompt engineering for sentiment tasks
+- Memory-efficient loading with half precision
+- Automated response parsing and classification
+- Traditional ML vs LLM performance benchmarking
+
+### **Web Application Interface:**
+- Interactive Streamlit web application for real-time sentiment analysis
+- User-friendly interface with instant predictions and confidence scores
+- Support for single text analysis and batch file processing
+- Comprehensive visualization with metrics dashboard and exportable results
+- Professional UI with color-coded predictions and detailed analysis breakdowns
+
 ## 🚀 Getting Started
 
 ### Prerequisites
 - Python 3.8+
 - Jupyter Notebook
-- Required packages: numpy, pandas, scikit-learn, matplotlib, seaborn, nltk
+- Required packages: numpy, pandas, scikit-learn, matplotlib, seaborn, nltk, streamlit
 
 ### Installation
 ```bash
@@ -155,6 +194,9 @@ uv sync
 
 # Or install with pip
 pip install -e .
+
+# Additional packages for web UI
+pip install streamlit
 ```
 
 ### Running the Assignment Solutions
@@ -184,6 +226,30 @@ jupyter notebook sentiment_analysis_homework_solutions.ipynb
   - Contains working solutions to all original exercises
   - Maintained for historical purposes and alternative approaches
 
+### 🌐 Web Application
+
+#### Launch the Streamlit Web App
+```bash
+# Navigate to the ui directory
+cd ui
+
+# Run the Streamlit application
+streamlit run main.py
+```
+
+The web application will automatically open in your default browser at `http://localhost:8501`.
+
+#### Web App Features
+- **🎯 Main Sentiment Prediction**: Clear POSITIVE/NEGATIVE classification with confidence scores
+- **📊 Interactive Dashboard**: Real-time metrics with sentiment, confidence, and raw probability scores  
+- **📝 Single Text Analysis**: Instant sentiment analysis with detailed breakdowns
+- **📁 Batch File Processing**: Upload text files for bulk sentiment analysis
+- **📈 Summary Statistics**: Comprehensive analysis with positive/negative counts and trends
+- **💾 Export Functionality**: Download results as CSV files
+- **🔍 Detailed Analysis**: Expandable sections with processed words and interpretation guides
+
+For detailed web app documentation, see [`ui/README.md`](ui/README.md).
+
 ## 📊 Visualizations and Analysis
 
 The notebook includes comprehensive visualizations:
@@ -202,6 +268,10 @@ The notebook includes comprehensive visualizations:
 4. **Simple rule-based approaches** can be surprisingly effective for well-structured problems
 5. **Advanced ensemble methods** don't always outperform simpler approaches on clean datasets
 6. **Proper evaluation and comparison methodology** is essential for reliable results
+7. **"Newer isn't always better"** - Traditional ML can outperform modern LLMs on specific tasks
+8. **Task-specific feature engineering** can be more powerful than billions of general parameters
+9. **Computational efficiency matters** - 1000x faster inference with comparable or better accuracy
+10. **Context and resource constraints** should drive algorithm selection, not just performance metrics
 
 ## 📋 Recent Updates
 
@@ -220,6 +290,22 @@ The notebook includes comprehensive visualizations:
 - Comprehensive training time vs performance trade-off analysis
 - Improved documentation and code comments
 - Better visualization of results and model comparisons
+
+### 🌐 Interactive Web Application (`ui/main.py`)
+- ✅ **Professional Streamlit web interface** for real-time sentiment analysis
+- ✅ **Main sentiment prediction display** with clear POSITIVE/NEGATIVE classification
+- ✅ **Interactive metrics dashboard** showing confidence scores and raw probabilities
+- ✅ **Batch file processing** with summary statistics and individual analysis
+- ✅ **Export functionality** for CSV download of results
+- ✅ **Enhanced user experience** with color-coded predictions and expandable details
+- ✅ **Comprehensive preprocessing visualization** showing processed words and interpretation guides
+
+### Web App Highlights:
+- Instant single text analysis with detailed breakdowns
+- Bulk processing capabilities with statistical summaries  
+- Professional UI with emojis, metrics, and organized layout
+- Educational features showing model internals and preprocessing steps
+- Production-ready interface suitable for demonstrations and practical use
 
 ## 🤝 Contributing
 
