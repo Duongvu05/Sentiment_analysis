@@ -17,7 +17,8 @@ dependencies = [
     "jupyter",
     "transformers",
     "torch",
-    "datasets"
+    "datasets",
+    "nltk"
 ]
 
 [project.optional-dependencies]

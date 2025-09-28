@@ -2,8 +2,12 @@
 Models module
 
 Contains model definitions for sentiment analysis:
-- Traditional ML models (SVM, Naive Bayes, etc.)
-- Deep learning models (LSTM, BERT, etc.)
-- Custom model architectures
-- Model utilities and base classes
+- Logistic Regression model for binary sentiment classification
+- Base classes for sentiment analysis models
+- Model utilities and evaluation functions
 """
+
+from .base import SentimentModel
+from .logistic_regression import LogisticRegressionModel, sigmoid
+
+__all__ = ['SentimentModel', 'LogisticRegressionModel', 'sigmoid']
