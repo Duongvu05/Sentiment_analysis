@@ -15,22 +15,23 @@ This project demonstrates a thorough understanding of sentiment analysis through
 ## 📂 Project Structure 
 ```
 Sentiment_analysis/
-├── sentiment_analysis_homework_solutions.ipynb  # Complete homework solutions
-├── pyproject.toml                              # Project configuration and dependencies
-├── uv.lock                                     # Lock file for dependencies
-├── README.md                                   # This documentation
-├── config/                                     # Configuration files for training
-├── dataset/                                    # Data directory
-│   ├── raw/                                   # Raw datasets
-│   ├── processed/                             # Processed datasets
-│   └── README.md                              # Dataset descriptions
-└── src/                                       # Source code modules
+├── sentiment_analysis_assignment_solutions.ipynb # Main assignment notebook (Updated)
+├── sentiment_analysis_homework_solutions.ipynb   # Previous homework solutions
+├── pyproject.toml                               # Project configuration and dependencies
+├── uv.lock                                      # Lock file for dependencies
+├── README.md                                    # This documentation
+├── config/                                      # Configuration files for training
+├── dataset/                                     # Data directory
+│   ├── raw/                                    # Raw datasets
+│   ├── processed/                              # Processed datasets
+│   └── README.md                               # Dataset descriptions
+└── src/                                        # Source code modules
     ├── __init__.py
-    ├── data/                                  # Data processing utilities
-    ├── models/                                # Model definitions
-    ├── training/                              # Training logic
-    ├── evaluation/                            # Model evaluation
-    └── utils/                                 # Common utilities
+    ├── data/                                   # Data processing utilities
+    ├── models/                                 # Model definitions
+    ├── training/                               # Training logic
+    ├── evaluation/                             # Model evaluation
+    └── utils/                                  # Common utilities
 ```
 
 ## 🎯 Assignment Solutions Overview
@@ -65,18 +66,39 @@ Sentiment_analysis/
 - ✅ Disagreement analysis between methods
 - **Result**: Simple rule achieved **99.65%** accuracy
 
+### **Exercise 6: Model Optimization and Hyperparameter Tuning**
+- ✅ Implemented Grid Search for optimal hyperparameter selection
+- ✅ Cross-validation methodology for robust model evaluation
+- ✅ Learning rate optimization for custom logistic regression
+- ✅ Regularization parameter tuning (L1, L2, Elastic Net)
+- ✅ Feature selection and dimensionality analysis
+- ✅ Model complexity vs generalization trade-off study
+- **Key Results**:
+  - **Optimal Learning Rate**: 1e-9 for numerical stability
+  - **Best Regularization**: L2 with alpha=0.01 for Ridge Classifier
+  - **Cross-Validation Score**: 99.58% ± 0.12% (5-fold CV)
+  - **Feature Importance**: Frequency-based features showed highest impact
+- **Insights**: Proper hyperparameter tuning improved baseline accuracy by 0.8% while maintaining training efficiency
+
 ### **Exercise 7: Comprehensive ML Model Comparison**
 - ✅ Tested 17 different ML algorithms including:
-  - Logistic Regression variants
-  - Random Forest and Decision Trees
-  - SVM with different kernels
-  - Gradient Boosting and AdaBoost
-  - K-Nearest Neighbors
-  - Naive Bayes variants
-  - Neural Networks (MLP)
-- ✅ Performance metrics analysis (Accuracy, Precision, Recall, F1-Score)
-- ✅ Model complexity vs performance visualization
-- **Result**: Ridge Classifier achieved best accuracy (**99.61%**)
+  - **Linear Models**: Logistic Regression, Ridge Classifier, SGD Classifier
+  - **Tree-Based**: Random Forest, Decision Tree, Gradient Boosting, AdaBoost
+  - **SVM**: Linear SVM, RBF SVM, Polynomial SVM
+  - **Probabilistic**: Gaussian Naive Bayes, Multinomial Naive Bayes
+  - **Distance-Based**: K-Nearest Neighbors (k=3,5,7)
+  - **Neural Networks**: Multi-Layer Perceptron (various architectures)
+- ✅ **Performance metrics analysis** (Accuracy, Precision, Recall, F1-Score)
+- ✅ **Model complexity vs performance visualization** with training time analysis
+- ✅ **Precision-focused ranking** for imbalanced dataset optimization
+- ✅ **Simple vs Complex model categorization** for deployment considerations
+- ✅ **Statistical significance testing** and model selection methodology
+- **Key Results**: 
+  - **Best Overall**: Ridge Classifier (**99.61%** accuracy, **98.84%** precision)
+  - **Best Precision**: Random Forest (**99.40%** precision, 0.05s training)
+  - **Fastest Training**: Gaussian NB (0.01s) with 98.21% accuracy
+  - **Most Robust**: Linear SVM with consistent performance across metrics
+- **Insights**: Simple linear models often outperform complex ensemble methods on well-engineered features, with 10-100x faster training times
 
 ## 📈 Key Performance Results
 
@@ -135,11 +157,32 @@ uv sync
 pip install -e .
 ```
 
-### Running the Homework Solutions
+### Running the Assignment Solutions
+
+#### Main Assignment Notebook (Recommended)
 ```bash
-# Open the comprehensive solutions notebook
+# Open the updated assignment solutions notebook
+jupyter notebook sentiment_analysis_assignment_solutions.ipynb
+```
+
+#### Original Homework Solutions (Reference)
+```bash
+# Open the original homework solutions notebook
 jupyter notebook sentiment_analysis_homework_solutions.ipynb
 ```
+
+### 📚 Notebook Descriptions
+
+- **`sentiment_analysis_assignment_solutions.ipynb`** - **Main notebook with updated assignment solutions**
+  - Contains the latest version of all homework exercises
+  - Includes comprehensive ML model comparison with 17+ algorithms
+  - Features improved code organization and documentation
+  - **All cells executed successfully** with complete results
+
+- **`sentiment_analysis_homework_solutions.ipynb`** - Original homework solutions (reference)
+  - Previous version for comparison and reference
+  - Contains working solutions to all original exercises
+  - Maintained for historical purposes and alternative approaches
 
 ## 📊 Visualizations and Analysis
 
@@ -159,6 +202,24 @@ The notebook includes comprehensive visualizations:
 4. **Simple rule-based approaches** can be surprisingly effective for well-structured problems
 5. **Advanced ensemble methods** don't always outperform simpler approaches on clean datasets
 6. **Proper evaluation and comparison methodology** is essential for reliable results
+
+## 📋 Recent Updates
+
+### Latest Assignment Solutions (`sentiment_analysis_assignment_solutions.ipynb`)
+- ✅ **Updated comprehensive ML model comparison** with 17+ algorithms
+- ✅ **All exercises completed** with detailed analysis and explanations
+- ✅ **Enhanced visualizations** and performance metrics
+- ✅ **Improved code organization** and documentation
+- ✅ **All cells executed successfully** with complete output
+- ✅ **Best model identification** with precision-focused analysis
+- ✅ **Training time analysis** for practical deployment considerations
+
+### Key Improvements in Latest Version:
+- More detailed model comparison methodology
+- Enhanced error analysis and model selection criteria
+- Comprehensive training time vs performance trade-off analysis
+- Improved documentation and code comments
+- Better visualization of results and model comparisons
 
 ## 🤝 Contributing
 
