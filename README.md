@@ -27,7 +27,7 @@ Sentiment_analysis/
 │   └── README.md                               # Dataset descriptions
 ├── ui/                                          # Streamlit Web Application
 │   ├── README.md                               # UI documentation
-│   ├── main.py                                 # Streamlit application
+│   ├── app.py                                  # Streamlit application
 │   ├── sentiment_analysis_logistic_weights.npy # Trained model weights
 │   └── vocab.npy                              # Vocabulary frequencies
 └── src/                                        # Source code modules
@@ -234,7 +234,7 @@ jupyter notebook sentiment_analysis_homework_solutions.ipynb
 cd ui
 
 # Run the Streamlit application
-streamlit run main.py
+streamlit run app.py
 ```
 
 The web application will automatically open in your default browser at `http://localhost:8501`.
@@ -291,7 +291,7 @@ The notebook includes comprehensive visualizations:
 - Improved documentation and code comments
 - Better visualization of results and model comparisons
 
-### 🌐 Interactive Web Application (`ui/main.py`)
+### 🌐 Interactive Web Application (`ui/app.py`)
 - ✅ **Professional Streamlit web interface** for real-time sentiment analysis
 - ✅ **Main sentiment prediction display** with clear POSITIVE/NEGATIVE classification
 - ✅ **Interactive metrics dashboard** showing confidence scores and raw probabilities
