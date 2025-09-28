@@ -2,6 +2,7 @@
 This repository contains materials for a hands-on Sentiment Analysis workshop. The goal is to build a simple end-to-end solution from scratch
 
 ## 📂 Project Structure 
+```
 Sentiment_analysis/
 ├── pyproject.toml          # Cấu hình dự án và dependencies
 ├── uv.lock                 # Lock file cho dependencies
@@ -18,3 +19,4 @@ Sentiment_analysis/
 │   ├── training/          # Logic training
 │   ├── evaluation/        # Đánh giá mô hình
 │   └── utils/             # Các tiện ích chung
+```
